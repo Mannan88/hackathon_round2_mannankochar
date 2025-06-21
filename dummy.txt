@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Info Cards</title>
+    <style>
+        :root {
+            --color-dark-blue: #0267f4;
+            --color-mid-blue: #52a9c6;
+            --color-cyan: #68e5e6;
+            --color-black-bg: #1c1c1c;
+            --color-white: #ffffff;
+            --transition-fast: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: var(--color-black-bg);
+            color: var(--color-white);
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-dark-blue), var(--color-mid-blue));
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+        }
+
+        .parallax-section {
+            height: 400vh;
+            background: linear-gradient(180deg, var(--color-black-bg), var(--color-dark-blue), var(--color-mid-blue));
+        }
+
+        .cards-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-card {
+            position: absolute;
+            width: 250px;
+            height: 320px;
+            perspective: 1000px;
+            transform: translateY(-40vh) scale(0.6);
+            transition: all 0.1s ease-out;
+        }
+
+        .info-card:nth-child(1) { left: 20%; }
+        .info-card:nth-child(2) { left: 40%; }
+        .info-card:nth-child(3) { left: 60%; }
+        .info-card:nth-child(4) { left: 80%; }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+            border-radius: 20px;
+        }
+
+        .info-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, var(--color-dark-blue), var(--color-mid-blue));
+            color: white;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, var(--color-mid-blue), var(--color-cyan));
+            color: var(--color-black-bg);
+            transform: rotateY(180deg);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-black-bg);
+        }
+
+        .footer h2 {
+            font-size: 3rem;
+            color: var(--color-cyan);
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div>
+            <h1>Explore Our Services</h1>
+        </div>
+    </section>
+
+    <section class="parallax-section">
+        <div class="cards-container">
+            <div class="info-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">🎯</div>
+                        <h3>Strategy</h3>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-icon">🔍</div>
+                        <h3>Research</h3>
+                        <p>Market analysis and strategy design.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">🎨</div>
+                        <h3>Design</h3>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-icon">✨</div>
+                        <h3>Creativity</h3>
+                        <p>Bringing life to user experiences.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">⚡</div>
+                        <h3>Development</h3>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-icon">🚀</div>
+                        <h3>Performance</h3>
+                        <p>Fast, scalable & efficient tech.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Support</h3>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-icon">🤝</div>
+                        <h3>Partnership</h3>
+                        <p>Reliable long-term collaboration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <h2>All Services Revealed!</h2>
+    </section>
+
+    <script>
+        const cards = document.querySelectorAll('.info-card');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+
+            cards.forEach((card, index) => {
+                const start = index * 0.1;
+                const progress = Math.min(Math.max((scrollPercent - start) / 0.2, 0), 1);
+
+                const yMove = -40 + (40 * progress);
+                const scale = 0.6 + (0.4 * progress);
+                card.style.transform = `translateY(${yMove}vh) scale(${scale})`;
+
+                if (progress > 0.9) {
+                    card.classList.add('flipped');
+                } else {
+                    card.classList.remove('flipped');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
