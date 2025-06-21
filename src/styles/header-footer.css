@@ -1,0 +1,176 @@
+:root {
+      --color-dark-blue: #0267f4;
+      --color-mid-blue: #52a9c6;
+      --color-cyan: #68e5e6;
+      --color-black-bg: #1c1c1c;
+      --color-white: #ffffff;
+      --color-orange: #ff9900;
+      --transition-fast: 0.3s ease;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: transparent;
+      transition: background-color var(--transition-fast);
+      z-index: 1000;
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(28, 28, 28, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      color: var(--color-cyan);
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--color-white);
+      transition: color var(--transition-fast);
+    }
+
+    .nav-links li a:hover {
+      color: var(--color-cyan);
+    }
+
+    .login-btn a {
+      padding: 10px 20px;
+      background: var(--color-dark-blue);
+      color: var(--color-white);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color var(--transition-fast);
+    }
+
+    .login-btn a:hover {
+      background: var(--color-mid-blue);
+    }
+#page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  z-index: 9999;
+  pointer-events: none;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out;
+}
+
+#page-transition.active {
+  transform: scaleY(1);
+}
+
+/* footer */
+.site-footer {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  padding: 3rem 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 220px;
+}
+
+.footer-logo {
+  max-width: 100px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  border: 2px solid #68e5e6;
+}
+
+.footer-section h4 {
+  color: #68e5e6;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #52a9c6;
+}
+
+.footer-section p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #dcdcdc;
+}
+
+.social-icons {
+  margin: 0.5rem 0 1rem;
+}
+
+.social-icons a {
+  display: inline-block;
+  color: #68e5e6;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #52a9c6;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+  font-size: 0.9rem;
+}
+
+.footer-bottom .highlight {
+  color: #68e5e6;
+  font-weight: 600;
+}
+
+.footer-bottom .design {
+  color: #f87171;
+  font-weight: 500;
+}

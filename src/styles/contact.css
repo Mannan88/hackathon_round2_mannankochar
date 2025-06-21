@@ -1,0 +1,209 @@
+/* Base styles that won't conflict with components */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      padding-top: 80px; /* Space for fixed navbar */
+    }
+
+    /* Contact Cards Section */
+    .contact-cards {
+      margin-bottom: 3rem;
+    }
+
+    .contact-cards__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact-cards__title {
+      font-size: 2.8rem;
+      background: linear-gradient(90deg, #7f5af0, #2cb67d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-cards__subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+    }
+
+    .contact-cards__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      position: relative;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      z-index: -1;
+      background: linear-gradient(135deg, #7f5af0, #2cb67d);
+      border-radius: 18px;
+    }
+
+    .contact-card__icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card__title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .contact-card__text {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card__button {
+      margin-top: 1.2rem;
+      padding: 0.6rem 1.2rem;
+      background: #111827;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    .contact-card__button:hover {
+      background: #2cb67d;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-bottom: 3rem;
+    }
+
+    .faq__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .faq__title {
+      font-size: 2.8rem;
+      background: linear-gradient(90deg, #6366f1, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq__subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+    }
+
+    .faq__container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq__item {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq__item--open {
+      border-color: #7f5af0;
+      box-shadow: 0 5px 15px rgba(127, 90, 240, 0.1);
+    }
+
+    .faq__question {
+      padding: 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background-color: #f8fafc;
+      transition: all 0.3s ease;
+    }
+
+    .faq__question:hover {
+      background-color: #f1f5f9;
+    }
+
+    .faq__answer {
+      padding: 0 1.5rem;
+      font-size: 1rem;
+      color: #475569;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq__item--open .faq__answer {
+      padding: 1.5rem;
+      max-height: 500px;
+    }
+
+    .faq__icon {
+      font-size: 1.2rem;
+      color: #7f5af0;
+      transition: transform 0.3s ease;
+    }
+
+    .faq__item--open .faq__icon {
+      transform: rotate(45deg);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .page-container {
+        padding: 1.5rem;
+        padding-top: 70px;
+      }
+      
+      .contact-cards__title,
+      .faq__title {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-container {
+        padding: 1rem;
+        padding-top: 60px;
+      }
+      
+      .faq__question,
+      .faq__answer {
+        padding: 1.2rem;
+      }
+    }

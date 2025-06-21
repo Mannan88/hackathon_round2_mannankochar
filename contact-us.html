@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Cards</title>
+  <link href="/src/styles/header-footer.css" rel="stylesheet">
+  <link href="/src/styles/contact.css" rel="stylesheet">
+</head>
+<body>
+  <div id="page-transition"></div>
+
+  <custom-navbar></custom-navbar>
+  
+  <main class="page-container">
+    <!-- Contact Cards Section -->
+    <section class="contact-cards">
+      <header class="contact-cards__header">
+        <h1 class="contact-cards__title">Reach out to Us</h1>
+        <p class="contact-cards__subtitle">Reach out for collaborations, support, or just to say hi!</p>
+      </header>
+
+      <div class="contact-cards__container">
+        <div class="contact-card">
+          <img class="contact-card__icon" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-office-job-search-flaticons-lineal-color-flat-icons.png" alt="Email Icon" />
+          <h3 class="contact-card__title">Email Address</h3>
+          <p class="contact-card__text">info@inlighntech.com</p>
+          <button class="contact-card__button">Email us</button>
+        </div>
+        <div class="contact-card">
+          <img class="contact-card__icon" src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-eiffel-tower-france-wanicon-flat-wanicon.png" alt="Phone Icon" />
+          <h3 class="contact-card__title">Contact no.</h3>
+          <p class="contact-card__text">+91-9368842663</p>
+          <button class="contact-card__button">Call us!</button>
+        </div>
+        <div class="contact-card">
+          <img class="contact-card__icon" src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-great-wall-china-landmarks-wanicon-flat-wanicon.png" alt="Office Icon" />
+          <h3 class="contact-card__title">Visit our office</h3>
+          <p class="contact-card__text">Corporate Office- Office No: VO-301, WeWork Prestige Central, Ground Floor, 36, Infantry Rd, Tasker Town, Shivaji Nagar, Bengaluru, Karnataka 560001</p>
+          <button class="contact-card__button">View Location</button>
+        </div>
+        <div class="contact-card">
+          <img class="contact-card__icon" src="https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/64/000000/external-desert-arabian-culture-smashingstocks-flat-smashing-stocks.png" alt="Location Icon" />
+          <h3 class="contact-card__title">Registered Office</h3>
+          <p class="contact-card__text">Opposite swasti hospital anupam nagar badaun road bareilly uttar pradesh 243001</p>
+          <button class="contact-card__button">View Location</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <header class="faq__header">
+        <h1 class="faq__title">Frequently Asked Questions</h1>
+        <p class="faq__subtitle">Find quick answers to common questions about our AI Scheduling Assistant.</p>
+      </header>
+
+      <div class="faq__container">
+        <div class="faq__item">
+          <div class="faq__question">
+            <span>What is the AI Scheduling Assistant?</span>
+            <span class="faq__icon">+</span>
+          </div>
+          <div class="faq__answer">
+            Our AI Scheduling Assistant automates meeting planning, suggesting optimal times based on your calendar availability.
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <div class="faq__question">
+            <span>Is the AI Scheduling Assistant compatible with my calendar?</span>
+            <span class="faq__icon">+</span>
+          </div>
+          <div class="faq__answer">
+            Yes, our AI integrates with Google Calendar, Outlook, and Apple Calendar, keeping your schedule always in sync.
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <div class="faq__question">
+            <span>Can I use it for team scheduling?</span>
+            <span class="faq__icon">+</span>
+          </div>
+          <div class="faq__answer">
+            Absolutely! It identifies overlapping availability across teams and proposes meeting slots accordingly.
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <div class="faq__question">
+            <span>Does it support time zone conversion?</span>
+            <span class="faq__icon">+</span>
+          </div>
+          <div class="faq__answer">
+            Yes, it automatically adjusts meeting times to participants' local time zones for seamless coordination.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <custom-footer></custom-footer>
+  <script type="module" src="/src/scripts/navbar.js"></script>
+  <script>
+    // FAQ functionality
+    document.querySelectorAll('.faq__question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentNode;
+        item.classList.toggle('faq__item--open');
+      });
+    });
+
+    // Contact card buttons functionality
+    document.querySelectorAll('.contact-card__button').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const card = e.currentTarget.closest('.contact-card');
+        const title = card.querySelector('.contact-card__title').textContent;
+        alert(`You clicked the ${title} button`);
+      });
+    });
+
+    
+  </script>
+</body>
+</html>

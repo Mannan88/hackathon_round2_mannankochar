@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Certificate - Modern Interface</title>
+    <link href="/src/styles/verify.css" rel="stylesheet">
+    <link href="/src/styles/header-footer.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="page-transition"></div>
+
+    <custom-navbar></custom-navbar>
+    <div class="cursor-follower"></div>
+
+
+    <div class="particles"></div>
+
+    <div class="floating-element floating-element-1"></div>
+    <div class="floating-element floating-element-2"></div>
+
+    <div class="container">
+        <h1 class="title">Verify Certificate</h1>
+        <p class="subtitle">Enter Intern ID:</p>
+
+        <div class="form-group">
+            <div class="input-container">
+                <input type="text" class="input-field" placeholder="e.g., ITID000" id="internId">
+                <button class="verify-btn" onclick="verifyIntern()">Verify</button>
+            </div>
+        </div>
+
+        <div class="description">
+            Enter your <strong>Intern ID</strong> (e.g., ITID000) in the field above to verify your internship
+            certificate. You can find your Intern ID on your <strong>offer letter</strong> or <strong>experience
+                letter</strong>.
+        </div>
+    </div>
+      <custom-footer></custom-footer>
+    <script src="/src/scripts/verify.js"></script>
+    <script type="module" src="/src/scripts/navbar.js"></script>>
+
+</body>
+
+</html>
