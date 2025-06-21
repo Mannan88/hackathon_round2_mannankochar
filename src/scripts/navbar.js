@@ -1,10 +1,11 @@
 class Navbar extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <header class="navbar" id="navbar">
-        <div class="logo">InLighn Tech</div>
+<header class="navbar" id="navbar">
+  <div class="logo">InLighn Tech</div>
 
-        <ul class="nav-links">
+  <nav class="nav-wrapper">
+  <ul class="nav-links">
           <li><a href="/your-repo-name/index.html">Home</a></li>
           <li><a href="/your-repo-name/about-us.html">About Us</a></li>
           <li><a href="/your-repo-name/programs.html">Programs</a></li>
@@ -12,14 +13,22 @@ class Navbar extends HTMLElement {
           <li><a href="/your-repo-name/special.html">What's Special</a></li>
           <li><a href="/your-repo-name/contact-us.html">Contact Us</a></li>
         </ul>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+   
+  </nav>
 
-        <div class="login-btn">
-          <a href="/login.html">Login to Portal</a>
-        </div>
-      </header>
+  <div class="nav-actions">
+    <button id="dark-toggle">🌙</button>
+    <div class="login-btn">
+      <a href="/login.html">Login to Portal</a>
+    </div>
+  </div>
+</header>
+
     `;
   }
 }
+ 
 
 customElements.define('custom-navbar', Navbar);
 
@@ -104,3 +113,25 @@ customElements.define('custom-footer', footer);
       }
     });
   });
+
+  document.addEventListener("DOMContentLoaded", () => {
+  // Dark Mode Toggle
+  const toggleBtn = document.getElementById("dark-toggle");
+  toggleBtn?.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+  });
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  // Wait a tick to ensure custom elements render
+  setTimeout(() => {
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    if (hamburger && navLinks) {
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    }
+  }, 0);
+});
